@@ -1,0 +1,15 @@
+# Usa a imagem oficial do Ubuntu
+FROM ubuntu:latest
+
+# Instala o SNMP
+RUN apt-get update && apt-get install -y snmpd && \
+    rm -rf /var/lib/apt/lists/*
+
+# Copia o arquivo de configuração do SNMP
+COPY snmpd.conf /etc/snmp/snmpd.conf
+
+# Expõe a porta SNMP
+EXPOSE 161/udp
+
+# Inicia o serviço SNMP
+CMD ["/usr/sbin/snmpd", "-f", "-c", "/etc/snmp/snmpd.conf"]
