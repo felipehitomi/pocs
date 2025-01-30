@@ -13,5 +13,5 @@ docker-compose up -d
 3. URL: http://influxdb:8086
 4. Database: telegraf
 5. Username: admin
-6. Password: admin123
+6. Password: token
 7. Crie um Dashboard e adicione gráficos com os dados SNMP.
